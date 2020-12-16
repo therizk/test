@@ -22,6 +22,8 @@ func GetNilaiSiswa(ctx context.Context, nim int64, sekolah, kelas string, mapel_
 		if err != nil {
 			return resp, errors.AddTrace(err)
 		}
+
+		resp = mappingGetNilaiSiswa(nilai, detailSekolah)
 	} else if sekolah != "semua" {
 		nilai, err := nilai.GetNilaiSiswaBySekolah(ctx, sekolah)
 		if err != nil {
@@ -32,6 +34,8 @@ func GetNilaiSiswa(ctx context.Context, nim int64, sekolah, kelas string, mapel_
 		if err != nil {
 			return resp, errors.AddTrace(err)
 		}
+
+		resp = mappingGetNilaiSiswa(nilai, detailSekolah)
 	} else if sekolah == "semua" {
 		nilai, err := nilai.GetNilaiSiswaSemuaSekolah(ctx)
 		if err != nil {
@@ -42,9 +46,9 @@ func GetNilaiSiswa(ctx context.Context, nim int64, sekolah, kelas string, mapel_
 		if err != nil {
 			return resp, errors.AddTrace(err)
 		}
+
+		resp = mappingGetNilaiSiswa(nilai, detailSekolah)
 	}
 
-	resp = mappingGetNilaiSiswa(nilai, detailSekolah)
-
-	return nil, resp
+	return resp, nil
 }

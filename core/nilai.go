@@ -10,7 +10,7 @@ import (
 type NilaiSiswa struct {
 	NIM     int64  `json:"nim"      db:"nim"`
 	MapelID int64  `json:"mapel_id" db:"mapel_id"`
-	Nilai   int64  `json:"nilai"    db:"nilai"`
+	Nilai   int64  `json:"nili"     db:"nili"`
 	Sekolah string `json:"sekolah"  db:"sekolah"`
 	Kelas   string `json:"kelas"    db:"kelas"`
 }
